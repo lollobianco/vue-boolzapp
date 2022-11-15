@@ -123,13 +123,15 @@
 }
 
 .sentMex{
-   height: 30px;
    background-color: #CCFAB3;
+   max-width: 350px;
+   padding: 6px 0;
 }
 
 .recievedMex{
-   height: 30px;
    background-color: #FFFFFF;
+   max-width: 350px;
+   padding: 6px 0;
 }
 
 .logo{

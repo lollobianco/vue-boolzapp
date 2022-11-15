@@ -196,11 +196,11 @@ var app = new Vue(
 
                      if(this.contacts[i].messages[j].status == 'sent'){
 
-                        message = {message: this.contacts[i].messages[j].message, status: 'sent'}
+                        message = {message: this.contacts[i].messages[j].message, status: 'sent', date: this.contacts[i].messages[j].date}
 
                      } else {
 
-                        message = {message: this.contacts[i].messages[j].message, status: 'recieved'}
+                        message = {message: this.contacts[i].messages[j].message, status: 'recieved', date: this.contacts[i].messages[j].date}
 
                      }
                      
