@@ -164,10 +164,16 @@ var app = new Vue(
                     }
                 ],
             }
-         ]
+         ],
+
+         lastMessageText: '',
+
 	  },
+
 		methods:{
 			
+   
+
 		}
 	}
 );
