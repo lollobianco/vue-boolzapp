@@ -176,6 +176,8 @@ var app = new Vue(
 
          newMessageText: '',
 
+         contactStatus: 'Ultimo accesso oggi alle 12:00' 
+
 	  },
 
 		methods:{
@@ -226,12 +228,20 @@ var app = new Vue(
 
            let message;
            let botMessage;
+           setTimeout(() => this.contactStatus = 'Online', 1000);
+           setTimeout(() => this.contactStatus = 'Sta scrivendo...', 2000);
+           
 
            message = {message: this.newMessageText, status: 'sent', date: 'data'};
            botMessage = {message: 'Ok!', status: 'recieved', date: 'data'};
 
            this.chatMex.push(message)
+
            setTimeout(() => this.chatMex.push(botMessage), 3000);
+           setTimeout(() => this.contactStatus = 'Online', 3800);
+           setTimeout(() => this.contactStatus = 'Ultimo accesso oggi alle 12:00', 4800);
+           
+
 
            this.contacts.forEach((element, index) => {
 
