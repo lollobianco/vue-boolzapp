@@ -61,7 +61,22 @@
             </div>
 
             <div id="contacts-list">
-               
+
+               <div v-for="(element, index) in contacts" class="contact-container d-flex align-items-center justify-content-between px-3">
+
+                  <div class="d-flex align-items-center">
+                     <img :src="contacts[index].avatar" class="profile-image" alt="Profile image">
+                     <div>
+                        <span class="profile-name ms-2">{{contacts[index].name}}</span>
+                        <div class="fs-7 ms-2 activate-notification">Ultimo messaggio inviato</div>
+                     </div>
+                  </div>
+                  
+
+                  <span class="align-self-start fs-7 mt-2 activate-notification">orario</span>
+
+               </div>
+
             </div>
 
          </div>

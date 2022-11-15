@@ -78,6 +78,7 @@
 
 .user-icons, .fa-magnifying-glass{
    color: #999999;
+   cursor: pointer;
 }
 
 .fa-bell-slash{
@@ -94,9 +95,20 @@
 
 .activate-notification{
    color: #667487;
+   cursor: pointer;
 }
 
 .search-group{
    border: 0.5px solid lightgray;
    border-radius: 5px;
+}
+
+.contact-container{
+   height: 10%;
+   border-top: 1px solid #F9F9F9;
+   cursor: pointer;
+}
+
+.contact-container:hover{
+   background-color: #F9F9F9;
 }
