@@ -168,13 +168,40 @@ var app = new Vue(
 
          lastMessageText: '',
 
-         number: 2,
+         sentMex: [],
+         recievedMex: [],
 
 	  },
 
 		methods:{
 			
-         
+         chatSelector(element, index){
+
+            this.sentMex = []
+            this.recievedMex = []
+
+            for(let i = 0; i < this.contacts.length; i++){
+
+               if (i == index){
+
+                  for(let j = 0; j < this.contacts[i].messages.length; j++){
+
+                     if(this.contacts[i].messages[j].status == 'sent'){
+                        this.sentMex.push(this.contacts[i].messages[j].message)
+                     }  else{
+                        this.recievedMex.push(this.contacts[i].messages[j].message)
+                     }
+                     
+                  }
+
+               }
+
+            }
+
+            console.log(this.sentMex)
+            console.log(this.recievedMex)
+
+         }
 
 		}
 	}

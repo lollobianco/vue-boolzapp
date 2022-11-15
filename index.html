@@ -62,7 +62,7 @@
 
             <div id="contacts-list">
 
-               <div v-for="(element, index) in contacts" class="position-relative contact-container d-flex align-items-center justify-content-between px-3">
+               <div v-for="(element, index) in contacts" class="position-relative contact-container d-flex align-items-center justify-content-between px-3" @click="chatSelector(element, index)">
 
                   <div class="d-flex align-items-center">
                      <img :src="contacts[index].avatar" class="profile-image" alt="Profile image">
@@ -105,9 +105,9 @@
 
             <div id="chat-container" class="px-5 py-4">
 
-               <div v-for="(element, index) in contacts[0].messages">
+               <div v-for="(element, index) in contacts">
                   
-                     <!-- <span>{{element.messages[0].message}}</span> -->
+                  
                   
                </div>
 
