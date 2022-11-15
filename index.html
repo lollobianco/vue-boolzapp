@@ -23,7 +23,7 @@
 
             <div id="user" class="d-flex justify-content-between">
 
-               <div class="image-name-container h-100 d-flex align-items-center px-2">
+               <div class="image-name-container h-100 d-flex align-items-center px-3">
                   <img src="./assets/img/avatar_io.jpg" alt="my profile image" class="profile-image">
                   <span class="profile-name ms-2">Sofia</span>
                </div>
@@ -36,22 +36,32 @@
 
             </div>
 
-            <div id="enable-notification" class="d-flex justify-content-between align-items-center">
+            <div id="enable-notification">
 
-               <div class="h-100 d-flex align-items-center px-2">
+               <div class="h-100 d-flex align-items-center px-3">
+
                   <div class="profile-image bg-white d-flex justify-content-center align-items-center">
-                     <i class="fa-solid fa-bell-slash"></i>
+                     <i class="fa-solid fa-bell-slash"></i>                  
                   </div>
+
+                  <div class="d-flex flex-column justify-content-center">
+                     <span class="fs-8 ms-2">Ricevi notifiche di nuovi messaggi</span>
+                     <span class="fs-7 ms-2 text-decoration-underline activate-notification">Attiva notifiche desktop</span> 
+                  </div>
+                  
                </div>
 
             </div>
 
-            <div id="search-bar">
-
+            <div id="search-bar" class="px-1 py-1">
+               <div class="input-group input-group-sm mb-3 search-group">
+                  <span class="input-group-text border-0 bg-white" id="inputGroup-sizing-sm"><i class="fa-solid fa-magnifying-glass px-3"></i></span>
+                  <input type="text" class="form-control border-0" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+               </div>
             </div>
 
             <div id="contacts-list">
-
+               
             </div>
 
          </div>

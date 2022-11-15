@@ -76,10 +76,27 @@
    border-radius: 50%;
 }
 
-.user-icons{
+.user-icons, .fa-magnifying-glass{
    color: #999999;
 }
 
 .fa-bell-slash{
    color: #74DCFF;
+}
+
+.fs-7{
+   font-size: 0.7rem;
+}
+
+.fs-8{
+   font-size: 0.8rem;
+}
+
+.activate-notification{
+   color: #667487;
+}
+
+.search-group{
+   border: 0.5px solid lightgray;
+   border-radius: 5px;
 }
