@@ -43,3 +43,28 @@
    width: 100%;
 }
 
+#right-section{
+   width: 67%;
+   height: 100%;
+   background-color: white;
+   border-radius: 0 10px 10px 0;
+}
+
+#contact-container{
+   width: 100%;
+   height: 8%;
+   background-color: #EAEAEA;
+   border-radius: 0 10px 0 0;
+}
+
+#chat-container{
+   height: 84%;
+   background-image: url(../img/mine.jpg);
+}
+
+#chat-input-container{
+   width: 100%;
+   height: 8%;
+   background-color: #F4EEEA;
+   border-radius: 0 0 10px 0;
+}
