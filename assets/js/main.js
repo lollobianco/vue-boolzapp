@@ -168,8 +168,7 @@ var app = new Vue(
 
          lastMessageText: '',
 
-         sentMex: [],
-         recievedMex: [],
+         chatMex: [],
 
 	  },
 
@@ -177,8 +176,10 @@ var app = new Vue(
 			
          chatSelector(element, index){
 
-            this.sentMex = []
+            this.chatMex = []
             this.recievedMex = []
+
+            let message; 
 
             for(let i = 0; i < this.contacts.length; i++){
 
@@ -187,10 +188,18 @@ var app = new Vue(
                   for(let j = 0; j < this.contacts[i].messages.length; j++){
 
                      if(this.contacts[i].messages[j].status == 'sent'){
-                        this.sentMex.push(this.contacts[i].messages[j].message)
-                     }  else{
-                        this.recievedMex.push(this.contacts[i].messages[j].message)
+
+                        message = {message: this.contacts[i].messages[j].message, status: 'sent'}
+
+                     } else {
+
+                        message = {message: this.contacts[i].messages[j].message, status: 'recieved'}
+
                      }
+                     
+                     
+                     this.chatMex.push(message)
+                     
                      
                   }
 
@@ -198,10 +207,10 @@ var app = new Vue(
 
             }
 
-            console.log(this.sentMex)
-            console.log(this.recievedMex)
+            console.log(this.chatMex)
 
-         }
+         },
+
 
 		}
 	}

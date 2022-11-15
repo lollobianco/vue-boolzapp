@@ -121,3 +121,13 @@
 .date-last-mex{
    right: 20px;
 }
+
+.sentMex{
+   height: 30px;
+   background-color: #CCFAB3;
+}
+
+.recievedMex{
+   height: 30px;
+   background-color: #FFFFFF;
+}

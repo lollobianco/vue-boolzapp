@@ -105,10 +105,16 @@
 
             <div id="chat-container" class="px-5 py-4">
 
-               <div v-for="(element, index) in contacts">
+               <div v-for="(element, index) in chatMex">
                   
-                  
-                  
+                  <div v-if="(chatMex[index].status == 'sent')" class="d-flex justify-content-end">
+                     <div class="sentMex my-3 p-3 rounded d-flex align-items-center">{{chatMex[index].message}}</div>
+                  </div>
+
+                  <div v-else class="d-flex justify-content-start">
+                     <div class="recievedMex my-3 p-3 rounded d-flex align-items-center">{{chatMex[index].message}}</div>
+                  </div>
+               
                </div>
 
             </div>
