@@ -170,6 +170,10 @@ var app = new Vue(
 
          chatMex: [],
 
+         recipient: '',
+
+         recipientAvatar: '',
+
 	  },
 
 		methods:{
@@ -178,6 +182,9 @@ var app = new Vue(
 
             this.chatMex = []
             this.recievedMex = []
+
+            this.recipient = element.name
+            this.recipientAvatar = element.avatar
 
             let message; 
 
@@ -208,6 +215,8 @@ var app = new Vue(
             }
 
             console.log(this.chatMex)
+
+            console.log(this.recipient)
 
          },
 

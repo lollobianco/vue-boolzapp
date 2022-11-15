@@ -40,8 +40,10 @@
 
                <div class="h-100 d-flex align-items-center px-3">
 
-                  <div class="profile-image bg-white d-flex justify-content-center align-items-center">
-                     <i class="fa-solid fa-bell-slash"></i>                  
+                  <div class="d-flex justify-content-center align-items-center">
+                     <div class="profile-image bg-white d-flex justify-content-center align-items-center">
+                        <i class="fa-solid fa-bell-slash"></i> 
+                     </div>                 
                   </div>
 
                   <div class="d-flex flex-column justify-content-center">
@@ -53,8 +55,8 @@
 
             </div>
 
-            <div id="search-bar" class="px-1 py-1">
-               <div class="input-group input-group-sm mb-3 search-group">
+            <div id="search-bar" class="px-1 d-flex align-items-center">
+               <div class="input-group input-group-sm search-group">
                   <span class="input-group-text border-0 bg-white" id="inputGroup-sizing-sm"><i class="fa-solid fa-magnifying-glass px-3"></i></span>
                   <input type="text" class="form-control border-0" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                </div>
@@ -88,9 +90,10 @@
             <div id="contact-container" class="d-flex align-items-center justify-content-between px-3">
 
                <div class="d-flex align-items-center">
-                  <img :src="contacts[0].avatar" class="profile-image" alt="Profile image">
-                  <div>
-                     <span class="profile-name ms-2">{{contacts[0].name}}</span>
+                  <img v-if="(recipientAvatar != '')" :src="recipientAvatar" class="profile-image" alt="Profile image">
+                  <div v-else class="m-0">Seleziona una chat per iniziare a chattare!</div>
+                  <div v-if="(recipient != '')">
+                     <span class="profile-name ms-2">{{recipient}}</span>
                      <div class="fs-7 ms-2 activate-notification">Ultimo accesso:</div>
                   </div>
                </div>
@@ -105,10 +108,17 @@
 
             <div id="chat-container" class="px-5 py-4">
 
+               <div v-if="(chatMex == 0)" class="h-100 d-flex flex-column justify-content-center align-items-center">
+                  
+                  <img class="logo" src="./assets/img/allthings.how-how-to-use-whatsapp-web-without-your-phone-being-connected-to-the-internet-whatsapp.png" alt="">
+                  
+               </div>
+               
+
                <div v-for="(element, index) in chatMex">
                   
                   <div v-if="(chatMex[index].status == 'sent')" class="d-flex justify-content-end">
-                     <div class="sentMex my-3 p-3 rounded d-flex align-items-center">{{chatMex[index].message}}</div>
+                     <div class="sentMex my-2 p-3 rounded d-flex align-items-center">{{chatMex[index].message}}</div>
                   </div>
 
                   <div v-else class="d-flex justify-content-start">
@@ -123,7 +133,8 @@
                <i class="fa-regular fa-face-smile fs-5 user-icons"></i>
 
                <div class="w-100 px-4">
-                  <input class="form-control border-0" type="text" placeholder="Scrivi un messaggio" aria-label="default input example">
+                  <input v-if="(chatMex == 0)" class="form-control border-0" type="text" placeholder="Seleziona una chat per iniziare a chattare!" aria-label="default input example">
+                  <input v-else class="form-control border-0" type="text" placeholder="Scrivi un messaggio" aria-label="default input example">
                </div>
                
                <i class="fa-solid fa-microphone fs-5 user-icons"></i>
