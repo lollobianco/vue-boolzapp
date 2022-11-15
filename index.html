@@ -24,8 +24,8 @@
             <div id="user" class="d-flex justify-content-between">
 
                <div class="image-name-container h-100 d-flex align-items-center px-3">
-                  <img src="./assets/img/avatar_io.jpg" alt="my profile image" class="profile-image">
-                  <span class="profile-name ms-2">Sofia</span>
+                  <img src="./assets/img/avatar_2.jpg" alt="my profile image" class="profile-image">
+                  <span class="profile-name ms-2">Lorenzo Bianconi</span>
                </div>
 
                <div class="user-icons h-100 d-flex align-items-center px-2">
@@ -96,7 +96,7 @@
 
                      <span class="profile-name ms-2">{{recipient}}</span>
 
-                     <div class="activate-notification fs-xxs ms-2">Ultimo accesso oggi alle 12:00</div>
+                     <div class="activate-notification fs-8 ms-2">Ultimo accesso oggi alle 12:00</div>
 
                   </div>
                </div>
@@ -139,14 +139,27 @@
             </div>
 
             <div id="chat-input-container" class="d-flex align-items-center justify-content-between px-3">
+
                <i class="fa-regular fa-face-smile fs-5 user-icons"></i>
 
-               <div class="w-100 px-4">
-                  <input v-if="(chatMex == 0)" class="form-control border-0" type="text" placeholder="Seleziona una chat per iniziare a chattare!" aria-label="default input example">
-                  <input v-else class="form-control border-0" type="text" placeholder="Scrivi un messaggio" aria-label="default input example">
+               <div class="w-100 px-4 pe-1" onclick="return false">
+
+                  <input v-if="(chatMex == '')" class="form-control border-0" type="text" placeholder="Seleziona una chat per iniziare a chattare!" aria-label="default input example">
+
+                  <form v-else class="d-flex">
+
+                     <input class="form-control border-0" type="text" placeholder="Scrivi un messaggio" aria-label="default input example" v-model="newMessageText">  
+                     
+                     <button v-if="(newMessageText != '')" type="submit" v-on:keyup.enter="submit" onclick="return false" class="btn btn-light ms-3 bg-white"  @click="newMessage()">
+                        <i class="fa-solid fa-paper-plane fs-5 user-icons"></i>
+                     </button>
+                     <button v-else class="btn btn-light ms-3 bg-white"><i class="fa-solid fa-microphone fs-5 user-icons"></i></button>
+
+                  </form>
+
                </div>
-               
-               <i class="fa-solid fa-microphone fs-5 user-icons"></i>
+
+
             </div>
 
          </div>

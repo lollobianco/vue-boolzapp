@@ -26,8 +26,8 @@ var app = new Vue(
                 ],
             },
             {
-                name: 'Fabio',
-                avatar: './assets/img/avatar_2.jpg',
+                name: 'Fabiola',
+                avatar: './assets/img/avatar_io.jpg',
                 visible: true,
                 messages: [
                     {
@@ -174,6 +174,8 @@ var app = new Vue(
 
          recipientAvatar: '',
 
+         newMessageText: '',
+
 	  },
 
 		methods:{
@@ -219,6 +221,38 @@ var app = new Vue(
             console.log(this.recipient)
 
          },
+
+         newMessage(){
+
+           let message;
+           let botMessage;
+
+           message = {message: this.newMessageText, status: 'sent', date: 'data'};
+           botMessage = {message: 'Ok!', status: 'recieved', date: 'data'};
+
+           this.chatMex.push(message)
+           setTimeout(() => this.chatMex.push(botMessage), 3000);
+
+           this.contacts.forEach((element, index) => {
+
+            if(element.name == this.recipient){
+
+               element.messages.push(message)
+
+               setTimeout(() => element.messages.push(botMessage), 3000);
+
+            }
+
+           })
+
+           console.log(message)
+           console.log(botMessage)
+
+
+           message = '';
+           this.newMessageText = '';
+
+         }
 
 
 		}
