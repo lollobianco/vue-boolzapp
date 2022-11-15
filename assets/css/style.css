@@ -74,6 +74,7 @@
    width: 45px;
    height: 45px;
    border-radius: 50%;
+   cursor: pointer;
 }
 
 .user-icons, .fa-magnifying-glass{
@@ -91,6 +92,10 @@
 
 .fs-8{
    font-size: 0.8rem;
+}
+
+.fs-xxs{
+   font-size: 0.6rem;
 }
 
 .activate-notification{
@@ -111,4 +116,8 @@
 
 .contact-container:hover{
    background-color: #F9F9F9;
+}
+
+.date-last-mex{
+   right: 20px;
 }

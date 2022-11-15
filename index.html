@@ -62,7 +62,7 @@
 
             <div id="contacts-list">
 
-               <div v-for="(element, index) in contacts" class="contact-container d-flex align-items-center justify-content-between px-3">
+               <div v-for="(element, index) in contacts" class="position-relative contact-container d-flex align-items-center justify-content-between px-3">
 
                   <div class="d-flex align-items-center">
                      <img :src="contacts[index].avatar" class="profile-image" alt="Profile image">
@@ -71,9 +71,8 @@
                         <div class="fs-7 ms-2 activate-notification">{{element.messages[element.messages.length - 1].message}}</div>
                      </div>
                   </div>
-                  
 
-                  <span class="align-self-start fs-7 mt-2 activate-notification">{{element.messages[element.messages.length - 1].date}}</span>
+                  <span class="align-self-start fs-xxs mt-2 activate-notification position-absolute date-last-mex">{{element.messages[element.messages.length - 1].date}}</>
 
                </div>
 
@@ -86,7 +85,21 @@
 
          <div id="right-section">
 
-            <div id="contact-container">
+            <div id="contact-container" class="d-flex align-items-center justify-content-between px-3">
+
+               <div class="d-flex align-items-center">
+                  <img :src="contacts[0].avatar" class="profile-image" alt="Profile image">
+                  <div>
+                     <span class="profile-name ms-2">{{contacts[0].name}}</span>
+                     <div class="fs-7 ms-2 activate-notification">Ultimo accesso:</div>
+                  </div>
+               </div>
+
+               <div class="user-icons h-100 d-flex align-items-center px-2">
+                  <i class="fa-solid fa-magnifying-glass px-2"></i>
+                  <i class="fa-solid fa-paperclip px-2"></i>
+                  <i class="fa-solid fa-ellipsis-vertical px-2"></i>
+               </div>
 
             </div>
 
