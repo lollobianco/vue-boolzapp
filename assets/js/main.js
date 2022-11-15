@@ -168,6 +168,8 @@ var app = new Vue(
 
          lastMessageText: '',
 
+         number: 2,
+
 	  },
 
 		methods:{
