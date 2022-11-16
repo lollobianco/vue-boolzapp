@@ -176,7 +176,9 @@ var app = new Vue(
 
          newMessageText: '',
 
-         contactStatus: 'Ultimo accesso oggi alle 12:00', 
+         contactStatus: 'Ultimo accesso oggi alle: 12:00', 
+
+         searchText: '',
 
 	  },
 
@@ -199,10 +201,6 @@ var app = new Vue(
                   for(let j = 0; j < this.contacts[i].messages.length; j++){
 
                      if(this.contacts[i].messages[j].status == 'sent'){
-
-                        let date = this.contacts[i].messages[j].date
-                        date = date.slice(2, 2);
-                        console.log(date)
 
                         message = {message: this.contacts[i].messages[j].message, status: 'sent', date: this.contacts[i].messages[j].date}
 
@@ -273,8 +271,33 @@ var app = new Vue(
            message = '';
            this.newMessageText = '';
 
-         }
+         },
 
+         search(){
+
+            console.log(this.searchText)
+
+            let searchTexto = this.searchText;
+
+            this.contacts.forEach((element, index) => {
+
+                if (searchTexto == ''){
+
+                    this.contacts[index].visible = true;
+
+                } else {
+
+                    if(element.name.includes(searchTexto)){
+                        element.visible = true
+                    } else {
+                        element.visible = false
+                    }
+
+                } 
+
+            })
+
+         }
 
 		}
 	}

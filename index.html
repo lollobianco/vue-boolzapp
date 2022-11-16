@@ -57,15 +57,23 @@
             </div>
 
             <div id="search-bar" class="px-1 d-flex align-items-center">
-               <div class="input-group input-group-sm search-group">
-                  <span class="input-group-text border-0 bg-white" id="inputGroup-sizing-sm"><i class="fa-solid fa-magnifying-glass px-3"></i></span>
-                  <input type="text" class="form-control border-0" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-               </div>
+               <form class="d-flex align-items-center w-100">
+                  <div class="input-group input-group-sm search-group">
+                  
+                     <button class="btn bg-white p-0" onclick="return false" type="submit" @click="search()">
+                        <span class="input-group-text border-0 bg-white px-2" id="inputGroup-sizing-sm">
+                           <i class="fa-solid fa-magnifying-glass px-1"></i>
+                        </span>
+                     </button>
+                     <input type="text" placeholder="Cerca contatto" class="form-control border-0" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" v-on:keyup="search()" v-model="searchText">
+                                    
+                  </div>
+               </form>
             </div>
 
             <div id="contacts-list">
 
-               <div v-for="(element, index) in contacts" class="position-relative contact-container d-flex align-items-center justify-content-between px-3" @click="chatSelector(element, index)">
+               <div v-if="(element.visible == true)" v-for="(element, index) in contacts" class="position-relative contact-container d-flex align-items-center justify-content-between px-3" @click="chatSelector(element, index)">
 
                   <div class="d-flex align-items-center">
                      <img :src="contacts[index].avatar" class="profile-image" alt="Profile image">
