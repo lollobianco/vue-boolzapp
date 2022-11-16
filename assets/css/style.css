@@ -1,7 +1,7 @@
 #app{
    background: rgb(0,168,132);
    background: linear-gradient(0deg,  rgb(236, 229, 221) 85% ,  rgb(	18, 140, 126) 10%);
-   padding: 2% 0;   
+   padding: 2% 0;  
 }
 
 #general-container{
@@ -9,6 +9,9 @@
    width: 80%;
    margin: 0 auto;
    border-radius: 10px;
+   border: 1px solid lightgray;
+   -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41); 
+   box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41);
 }
 
 #left-section{
@@ -74,7 +77,15 @@
    width: 45px;
    height: 45px;
    border-radius: 50%;
+   margin-right: 5px;
    cursor: pointer;
+   -webkit-box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.35); 
+   box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.35);
+}
+
+.form-control-chat{
+   -webkit-box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.35); 
+   box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.35);
 }
 
 .user-icons, .fa-magnifying-glass{
@@ -126,15 +137,40 @@
    background-color: #CCFAB3;
    max-width: 350px;
    padding: 6px 0;
+   cursor: pointer;
+   -webkit-box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.35); 
+   box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.35);
 }
 
 .recievedMex{
    background-color: #FFFFFF;
    max-width: 350px;
    padding: 6px 0;
+   cursor: pointer;
+   -webkit-box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.35); 
+   box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.35);
 }
 
 .logo{
    width: 50%;
    margin: 0 auto;
+}
+
+.arrow-down{
+   top: 3px;
+   right: 10px;
+   display: none;
+}
+
+.sentMex:hover .arrow-down{
+   display: inline-block;
+}
+
+.recievedMex:hover .arrow-down{
+   display: inline-block;
+}
+
+.btn{
+   -webkit-box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.35); 
+   box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.35);
 }

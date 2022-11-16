@@ -176,7 +176,7 @@ var app = new Vue(
 
          newMessageText: '',
 
-         contactStatus: 'Ultimo accesso oggi alle 12:00' 
+         contactStatus: 'Ultimo accesso oggi alle 12:00', 
 
 	  },
 
@@ -199,6 +199,10 @@ var app = new Vue(
                   for(let j = 0; j < this.contacts[i].messages.length; j++){
 
                      if(this.contacts[i].messages[j].status == 'sent'){
+
+                        let date = this.contacts[i].messages[j].date
+                        date = date.slice(2, 2);
+                        console.log(date)
 
                         message = {message: this.contacts[i].messages[j].message, status: 'sent', date: this.contacts[i].messages[j].date}
 
@@ -228,18 +232,25 @@ var app = new Vue(
 
            let message;
            let botMessage;
+           let date = new Date();
+           let hour = date.getHours();
+           let minutes = date.getMinutes();
+
+           let hourMinutes = hour + ':' + minutes;
+
+
            setTimeout(() => this.contactStatus = 'Online', 1000);
            setTimeout(() => this.contactStatus = 'Sta scrivendo...', 2000);
            
 
-           message = {message: this.newMessageText, status: 'sent', date: 'data'};
-           botMessage = {message: 'Ok!', status: 'recieved', date: 'data'};
+           message = {message: this.newMessageText, status: 'sent', date: `${hourMinutes}`};
+           botMessage = {message: 'Ok!', status: 'recieved', date: `${hourMinutes}`};
 
            this.chatMex.push(message)
 
            setTimeout(() => this.chatMex.push(botMessage), 3000);
            setTimeout(() => this.contactStatus = 'Online', 3800);
-           setTimeout(() => this.contactStatus = 'Ultimo accesso oggi alle 12:00', 4800);
+           setTimeout(() => this.contactStatus = `Ultimo accesso oggi alle: ${hourMinutes}`, 4800);
            
 
 

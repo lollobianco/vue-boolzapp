@@ -122,15 +122,17 @@
                <div v-for="(element, index) in chatMex">
                   
                   <div v-if="(chatMex[index].status == 'sent')" class="d-flex justify-content-end">
-                     <div class="sentMex my-2 px-2 rounded d-flex align-items-center">
+                     <div class="sentMex my-2 px-2 rounded d-flex align-items-center position-relative">
                         {{chatMex[index].message}}
+                        <span class="activate-notification arrow-down justify-self-end align-self-start fs-7 ms-3 position-absolute"><i class="fa-solid fa-angle-down"></i></span>
                         <span class="activate-notification justify-self-end align-self-end fs-xxs ms-3">{{chatMex[index].date}}</span>
                      </div>
                   </div>
 
                   <div v-else class="d-flex justify-content-start">
-                     <div class="recievedMex my-2 px-2 rounded d-flex align-items-center">
+                     <div class="recievedMex my-2 px-2 rounded d-flex align-items-center position-relative">
                         {{chatMex[index].message}}
+                        <span class="activate-notification arrow-down justify-self-end align-self-start fs-7 ms-3 position-absolute"><i class="fa-solid fa-angle-down"></i></span>
                         <span class="activate-notification justify-self-end align-self-end fs-xxs ms-3">{{chatMex[index].date}}</span>
                      </div>                     
                   </div>
@@ -145,11 +147,11 @@
 
                <div class="w-100 px-4 pe-1" onclick="return false">
 
-                  <input v-if="(chatMex == '')" class="form-control border-0" type="text" placeholder="Seleziona una chat per iniziare a chattare!" aria-label="default input example">
+                  <input v-if="(chatMex == '')" class="form-control form-control-chat border-0" type="text" placeholder="Seleziona una chat per iniziare a chattare!" aria-label="default input example">
 
                   <form v-else class="d-flex">
 
-                     <input class="form-control border-0" type="text" placeholder="Scrivi un messaggio" aria-label="default input example" v-model="newMessageText">  
+                     <input class="form-control form-control-chat border-0" type="text" placeholder="Scrivi un messaggio" aria-label="default input example" v-model="newMessageText">  
                      
                      <button v-if="(newMessageText != '')" type="submit" v-on:keyup.enter="submit" onclick="return false" class="btn btn-light ms-3 bg-white"  @click="newMessage()">
                         <i class="fa-solid fa-paper-plane fs-5 user-icons"></i>
