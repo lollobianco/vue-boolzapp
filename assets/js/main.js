@@ -281,13 +281,15 @@ var app = new Vue(
 
             this.contacts.forEach((element, index) => {
 
+
+
                 if (searchTexto == ''){
 
                     this.contacts[index].visible = true;
 
                 } else {
 
-                    if(element.name.includes(searchTexto)){
+                    if(element.name.includes(searchTexto) || element.name.toLowerCase().includes(searchTexto) || element.name.toUpperCase().includes(searchTexto) ){
                         element.visible = true
                     } else {
                         element.visible = false
