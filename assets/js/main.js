@@ -232,57 +232,69 @@ var app = new Vue(
 
         newMessage(){
 
-           let message;
-           let botMessage;
-           let date = new Date();
-           let hour = date.getHours();
-           let minutes = date.getMinutes();
-           let hourMinutes = '';
+            if (/^\s*$/.test(this.newMessageText) == true){
 
-           if(minutes < 10){
-            
-            hourMinutes = hour + ':' + 0 + minutes;
+                console.log("spazi");
 
-           } else{
+               }else{
 
-            hourMinutes = hour + ':' + minutes;
+                console.log("tutto ok");
+               
 
-           }
+                let message;
+                let botMessage;
+                let date = new Date();
+                let hour = date.getHours();
+                let minutes = date.getMinutes();
+                let hourMinutes = '';
 
+                if(minutes < 10){
+                    
+                    hourMinutes = hour + ':' + 0 + minutes;
 
-           setTimeout(() => this.lastAccess = 'Online', 1000);
-           setTimeout(() => this.lastAccess = 'Sta scrivendo...', 2000);
-           
+                } else{
 
-           message = {message: this.newMessageText, status: 'sent', date: `${hourMinutes}`};
-           botMessage = {message: 'Ok!', status: 'recieved', date: `${hourMinutes}`};
+                    hourMinutes = hour + ':' + minutes;
 
-           this.chatMex.push(message)
-
-           setTimeout(() => this.chatMex.push(botMessage), 3000);
-           setTimeout(() => this.lastAccess = 'Online', 3800);
-           setTimeout(() => this.lastAccess = `Ultimo accesso oggi alle: ${hourMinutes}`, 4800);
-           
+                }
 
 
-           this.contacts.forEach((element, index) => {
+                setTimeout(() => this.lastAccess = 'Online', 1000);
+                setTimeout(() => this.lastAccess = 'Sta scrivendo...', 2000);
 
-            if(element.name == this.recipient){
 
-               element.messages.push(message)
+                message = {message: this.newMessageText, status: 'sent', date: `${hourMinutes}`};
+                botMessage = {message: 'Ok!', status: 'recieved', date: `${hourMinutes}`};
 
-               setTimeout(() => element.messages.push(botMessage), 3000);
+                this.chatMex.push(message)
 
+                setTimeout(() => this.chatMex.push(botMessage), 3000);
+                setTimeout(() => this.lastAccess = 'Online', 3800);
+                setTimeout(() => this.lastAccess = `Ultimo accesso oggi alle: ${hourMinutes}`, 4800);
+                
+
+
+                this.contacts.forEach((element, index) => {
+
+                    if(element.name == this.recipient){
+
+                    element.messages.push(message)
+
+                    setTimeout(() => element.messages.push(botMessage), 3000);
+
+                    }
+
+                })
+
+                console.log(message)
+                console.log(botMessage)
+
+
+                message = '';
+                
             }
 
-           })
-
-           console.log(message)
-           console.log(botMessage)
-
-
-           message = '';
-           this.newMessageText = '';
+            this.newMessageText = '';
 
         },
 
