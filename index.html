@@ -136,7 +136,7 @@
                            <span class="activate-notification justify-self-end align-self-start fs-7 ms-3" data-bs-toggle="dropdown"><i class="fa-solid fa-angle-down"></i></span>
                            <ul class="dropdown-menu">
                              <li><a class="dropdown-item" href="#">Info messaggio</a></li>
-                             <li><a class="dropdown-item" href="#">Cancella messaggio</a></li>
+                             <li @click="deleteMessage(element, index)"><a class="dropdown-item">Cancella messaggio</a></li>
                            </ul>
                         </div>
                         <span class="activate-notification justify-self-end align-self-end fs-xxs ms-3">{{chatMex[index].date}}</span>
@@ -150,7 +150,7 @@
                            <span class="activate-notification justify-self-end align-self-start fs-7 ms-3" data-bs-toggle="dropdown"><i class="fa-solid fa-angle-down"></i></span>
                            <ul class="dropdown-menu">
                              <li><a class="dropdown-item" href="#">Info messaggio</a></li>
-                             <li><a class="dropdown-item" href="#">Cancella messaggio</a></li>
+                             <li @click="deleteMessage(element, index)"><a class="dropdown-item">Cancella messaggio</a></li>
                            </ul>
                         </div>
                         <span class="activate-notification justify-self-end align-self-end fs-xxs ms-3">{{chatMex[index].date}}</span>

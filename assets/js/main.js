@@ -312,7 +312,40 @@ var app = new Vue(
 
             })
 
-         }
+         },
+
+        deleteMessage(element, index){
+
+            // this.chatMex.splice(index, 1);
+
+            this.contacts.forEach((elem, ind) => {
+
+                if(elem.name == this.recipient){
+
+                    this.contacts[ind].messages.forEach((message, number) => {
+
+                        if(message.message == element.message){
+
+                            console.log(message)
+                            console.log(message.message)
+
+                            // message.message.splice(index, 1);
+                            this.chatMex.splice(index, 1);
+                            this.contacts[ind].messages.splice(number, 1);
+
+
+                            // console.log(this.contacts[ind].messages[number].message)
+
+                        }
+
+                    })
+
+                }
+
+            })
+            // this.contacts[index].messages.splice(index, 1);
+
+        },
 
 		}
 	}
