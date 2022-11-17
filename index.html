@@ -105,7 +105,7 @@
 
                      <span class="profile-name ms-2">{{recipient}}</span>
 
-                     <div class="activate-notification fs-8 ms-2">{{contactStatus}}</div>
+                     <div class="activate-notification fs-8 ms-2">{{lastAccess}}</div>
 
                   </div>
                </div>
@@ -132,7 +132,13 @@
                   <div v-if="(chatMex[index].status == 'sent')" class="d-flex justify-content-end">
                      <div class="sentMex my-2 px-2 rounded d-flex align-items-center position-relative">
                         {{chatMex[index].message}}
-                        <span class="activate-notification arrow-down justify-self-end align-self-start fs-7 ms-3 position-absolute"><i class="fa-solid fa-angle-down"></i></span>
+                        <div class="dropdown position-absolute arrow-down">
+                           <span class="activate-notification justify-self-end align-self-start fs-7 ms-3" data-bs-toggle="dropdown"><i class="fa-solid fa-angle-down"></i></span>
+                           <ul class="dropdown-menu">
+                             <li><a class="dropdown-item" href="#">Info messaggio</a></li>
+                             <li><a class="dropdown-item" href="#">Cancella messaggio</a></li>
+                           </ul>
+                        </div>
                         <span class="activate-notification justify-self-end align-self-end fs-xxs ms-3">{{chatMex[index].date}}</span>
                      </div>
                   </div>
@@ -140,7 +146,13 @@
                   <div v-else class="d-flex justify-content-start">
                      <div class="recievedMex my-2 px-2 rounded d-flex align-items-center position-relative">
                         {{chatMex[index].message}}
-                        <span class="activate-notification arrow-down justify-self-end align-self-start fs-7 ms-3 position-absolute"><i class="fa-solid fa-angle-down"></i></span>
+                        <div class="dropdown position-absolute arrow-down">
+                           <span class="activate-notification justify-self-end align-self-start fs-7 ms-3" data-bs-toggle="dropdown"><i class="fa-solid fa-angle-down"></i></span>
+                           <ul class="dropdown-menu">
+                             <li><a class="dropdown-item" href="#">Info messaggio</a></li>
+                             <li><a class="dropdown-item" href="#">Cancella messaggio</a></li>
+                           </ul>
+                        </div>
                         <span class="activate-notification justify-self-end align-self-end fs-xxs ms-3">{{chatMex[index].date}}</span>
                      </div>                     
                   </div>
