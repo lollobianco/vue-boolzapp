@@ -427,7 +427,7 @@ var app = new Vue(
 
             this.recipient = element.name
             this.recipientAvatar = element.avatar
-            this.lastAccess = 'Ultimo accesso: ' + element.messages[element.messages.length - 1].date
+            this.lastAccess = 'Ultimo accesso il ' + element.messages[element.messages.length - 1].date.slice(0, 16)
 
             let message; 
 
@@ -437,16 +437,16 @@ var app = new Vue(
 
                   for(let j = 0; j < this.contacts[i].messages.length; j++){
 
-                     let date = this.contacts[i].messages[j].date;
-                     date = date.split(' ');
+                     let date = this.contacts[i].messages[j].date.slice(10, 16);
+                    //  date = date.split(' ');
 
                      if(this.contacts[i].messages[j].status == 'sent'){
 
-                        message = {message: this.contacts[i].messages[j].message, status: 'sent', date: date[1], lastAccess: this.lastAccess}
+                        message = {message: this.contacts[i].messages[j].message, status: 'sent', date: date, lastAccess: this.lastAccess}
 
                      } else {
 
-                        message = {message: this.contacts[i].messages[j].message, status: 'recieved', date: date[1], lastAccess: this.lastAccess}
+                        message = {message: this.contacts[i].messages[j].message, status: 'recieved', date: date, lastAccess: this.lastAccess}
 
                      }
                      
@@ -480,33 +480,52 @@ var app = new Vue(
                 let message;
                 let botMessage;
                 let date = new Date();
+                let day = date.getDate();
+                let month = date.getMonth() + 1;
+                let year = date.getFullYear();
                 let hour = date.getHours();
                 let minutes = date.getMinutes();
-                let hourMinutes = '';
+                let seconds = date.getSeconds();
+                let fullDate = '';
 
-                if(minutes < 10){
+                if(minutes < 10 && seconds < 10){
                     
-                    hourMinutes = hour + ':' + 0 + minutes;
+                    fullDate = day + '/' + month + '/' + year + ' ' + hour + ':' + 0 + minutes + ':' + 0 + seconds;
 
-                } else{
+                } else if(minutes < 10){
 
-                    hourMinutes = hour + ':' + minutes;
+                    fullDate = day + '/' + month + '/' + year + ' ' + hour + ':' + 0 + minutes + ':' + seconds;
+
+                } else if(seconds < 10){
+
+                    fullDate = day + '/' + month + '/' + year + ' ' + hour + ':' + minutes + ':' + 0 + seconds;
+
+                } else {
+
+                    fullDate = day + '/' + month + '/' + year + ' ' + hour + ':' + minutes + ':' + seconds;
 
                 }
+
+                let hoursMinutes = fullDate.slice(10, 16);
+
+                console.log(hoursMinutes)
 
 
                 setTimeout(() => this.lastAccess = 'Online', 1000);
                 setTimeout(() => this.lastAccess = 'Sta scrivendo...', 2000);
 
 
-                message = {message: this.newMessageText, status: 'sent', date: `${hourMinutes}`};
-                botMessage = {message: 'Ok!', status: 'recieved', date: `${hourMinutes}`};
+                message = {message: this.newMessageText, status: 'sent', date: `${hoursMinutes}`};
+                botMessage = {message: 'Ok!', status: 'recieved', date: `${hoursMinutes}`};
+
+                messagePushed = {message: this.newMessageText, status: 'sent', date: `${fullDate}`};
+                botMessagePushed = {message: 'Ok!', status: 'recieved', date: `${fullDate}`};
 
                 this.chatMex.push(message)
 
                 setTimeout(() => this.chatMex.push(botMessage), 3000);
                 setTimeout(() => this.lastAccess = 'Online', 3800);
-                setTimeout(() => this.lastAccess = `Ultimo accesso oggi alle: ${hourMinutes}`, 4800);
+                setTimeout(() => this.lastAccess = `Ultimo accesso oggi alle: ${hoursMinutes}`, 4800);
                 
 
 
@@ -514,9 +533,9 @@ var app = new Vue(
 
                     if(element.name == this.recipient){
 
-                    element.messages.push(message)
+                    element.messages.push(messagePushed)
 
-                    setTimeout(() => element.messages.push(botMessage), 3000);
+                    setTimeout(() => element.messages.push(botMessagePushed), 3000);
 
                     }
 
