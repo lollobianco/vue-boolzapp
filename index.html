@@ -130,7 +130,7 @@
                <div v-for="(element, index) in chatMex">
                   
                   <div v-if="(chatMex[index].status == 'sent')" class="d-flex justify-content-end">
-                     <div class="sentMex my-2 px-2 rounded d-flex align-items-center position-relative">
+                     <div v-if="(chatMex.length != 0)" class="sentMex my-2 px-2 rounded d-flex align-items-center position-relative">
                         {{chatMex[index].message}}
                         <div class="dropdown position-absolute arrow-down">
                            <span class="activate-notification justify-self-end align-self-start fs-7 ms-3" data-bs-toggle="dropdown"><i class="fa-solid fa-angle-down"></i></span>
@@ -144,7 +144,7 @@
                   </div>
 
                   <div v-else class="d-flex justify-content-start">
-                     <div class="recievedMex my-2 px-2 rounded d-flex align-items-center position-relative">
+                     <div v-if="(chatMex.length != 0)" class="recievedMex my-2 px-2 rounded d-flex align-items-center position-relative">
                         {{chatMex[index].message}}
                         <div class="dropdown position-absolute arrow-down">
                            <span class="activate-notification justify-self-end align-self-start fs-7 ms-3" data-bs-toggle="dropdown"><i class="fa-solid fa-angle-down"></i></span>

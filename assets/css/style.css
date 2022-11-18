@@ -1,3 +1,7 @@
+html{
+   scroll-behavior: smooth;
+}
+
 #app{
    background: rgb(0,168,132);
    background: linear-gradient(0deg,  rgb(236, 229, 221) 85% ,  rgb(	18, 140, 126) 10%);
@@ -44,6 +48,14 @@
 #contacts-list{
    height: 77%;
    width: 100%;
+   overflow-y: auto;
+   -ms-overflow-style: none;  /* IE and Edge */
+   scrollbar-width: none;
+   scroll-behavior: smooth;
+}
+
+#contacts-list::-webkit-scrollbar {
+   display: none;
 }
 
 #right-section{
@@ -63,6 +75,14 @@
 #chat-container{
    height: 84%;
    background-image: url(../img/mine.jpg);
+   overflow-y: auto;
+   -ms-overflow-style: none;
+   scrollbar-width: none;
+   scroll-behavior: smooth;
+}
+
+#chat-container::-webkit-scrollbar {
+   display: none;
 }
 
 #chat-input-container{
