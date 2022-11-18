@@ -99,8 +99,8 @@ html{
    border-radius: 50%;
    margin-right: 5px;
    cursor: pointer;
-   -webkit-box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.35); 
-   box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.35);
+   -webkit-box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.35); 
+   box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.35);
 }
 
 .form-control-chat{
@@ -141,12 +141,12 @@ html{
 
 .contact-container{
    height: 11%;
-   border-top: 1px solid #F9F9F9;
+   border-top: 1px solid #e8e8e8;
    cursor: pointer;
 }
 
 .contact-container:hover{
-   background-color: #F9F9F9;
+   background-color: #e8e8e8;
 }
 
 .date-last-mex{
